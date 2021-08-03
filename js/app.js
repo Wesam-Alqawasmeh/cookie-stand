@@ -2,15 +2,125 @@
 
 let sales = document.getElementById('sales');
 
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+
 function randomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// ********************* Seattle ***********************************
+
+function salesData(name, minCust, maxCust, avg) {
+
+
+    this.name = name;
+    this.minCust = minCust;
+    this.maxCust = maxCust;
+    this.avg = avg;
+    this.cookiesSales = [];
+    this.total = 0;
+
+}
+
+salesData.prototype.getCookies = function () {
+    for (let i = 0; i < hours.length; i++) {
+        let randAvg = Math.ceil(randomNumber(this.minCust, this.maxCust) * this.avg);
+        this.cookiesSales.push(randAvg);
+        this.total += randAvg;
+    }
+}
+
+
+salesData.prototype.render = function () {
+    let trElement = document.createElement('tr');
+    sales.appendChild(trElement);
+
+    let thElement = document.createElement('th');
+    thElement.textContent = this.name;
+    trElement.appendChild(thElement);
+
+    for (let i = 0; i < hours.length; i++) {
+        let tdElement = document.createElement('td');
+        tdElement.textContent = this.cookiesSales[i];
+        trElement.appendChild(tdElement);
+    }
+
+    let tdElement = document.createElement('td');
+    tdElement.textContent = this.total;
+    trElement.appendChild(tdElement);
+
+}
+
+
+let seattle = new salesData('Seattle', 23, 65, 3.6);
+let tokyo = new salesData('Tokyo', 3, 24, 1.2);
+let dubai = new salesData('Dubai', 11, 38, 3.7);
+let paris = new salesData('Paris', 20, 38, 2.3);
+let lima = new salesData('Lima', 2, 16, 4.6);
+
+
+let array = [seattle, tokyo, dubai, paris, lima];
+
+tableHeader();
+for (let i = 0; i < array.length; i++) {
+    array[i].getCookies();
+    array[i].render();
+}
+tableFooter();
+
+
+function tableHeader() {
+    let trElement = document.createElement('tr');
+    sales.appendChild(trElement);
+
+    hours.unshift('');
+    hours.push('D.total');
+    for (let i = 0; i < hours.length; i++) {
+        let thElement = document.createElement('th');
+        thElement.textContent = hours[i];
+        trElement.appendChild(thElement);
+    }
+    hours.shift();
+    hours.pop();
+}
+
+function tableFooter() {
+    let trElement = document.createElement('tr');
+    sales.appendChild(trElement);
+
+    let thElement1 = document.createElement('th');
+        thElement1.textContent = '';
+        trElement.appendChild(thElement1);
+        
+    for (let i = 0; i < hours.length; i++) {
+
+        let hourlyTotal = 0;
+        for (let j = 0; j < array.length; j++) {
+            hourlyTotal += array[j].cookiesSales[i];
+        }
+
+
+        let thElement = document.createElement('th');
+        thElement.textContent = hourlyTotal;
+        trElement.appendChild(thElement);
+    }
+
+    let finalTotal = 0;
+    for (let j = 0; j < array.length; j++ ){
+        finalTotal += array[j].total
+    }
+
+    let thElement = document.createElement('th');
+        thElement.textContent = finalTotal;
+        trElement.appendChild(thElement);
+}
+
+
+
+
+// // ********************* Seattle ***********************************
 
 // let seattle = {
 //     name: 'Seattle',
@@ -206,110 +316,5 @@ function randomNumber(min, max) {
 // lima.render();
 // console.log(lima.cookiesSales);
 
-
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-
-function salesData(name, minCust, maxCust, avg) {
-
-
-    this.name = name;
-    this.minCust = minCust;
-    this.maxCust = maxCust;
-    this.avg = avg;
-    this.cookiesSales = [];
-    this.total = 0;
-
-}
-
-salesData.prototype.getCookies = function () {
-    for (let i = 0; i < hours.length; i++) {
-        let randAvg = Math.ceil(randomNumber(this.minCust, this.maxCust) * this.avg);
-        this.cookiesSales.push(randAvg);
-        this.total += randAvg;
-        // console.log(this.cookiesSales[i]);
-    }
-}
-
-
-
-let tableElement = document.createElement('table');
-sales.appendChild(tableElement);
-
-// let trElement = document.createElement('tr');
-// tableElement.appendChild(trElement);
-
-// let th = document.createElement('th');
-// th.textContent = 'Location/Hours';
-// trElement.appendChild(th);
-
-// for (let i = 0; i < hours.length; i++) {
-//     let thElement = document.createElement('th');
-//     thElement.textContent = hours[i]
-//     trElement.appendChild(thElement);
-// }
-
-
-
-// for (let i = 0; i < hours.length; i++) {
-//     let thElement = document.createElement('th');
-//     thElement.textContent = hours[i]
-//     trElement.appendChild(thElement);
-// }
-
-salesData.prototype.render = function () {
-
-    let trElement = document.createElement('tr');
-    tableElement.appendChild(trElement);
-
-    let th = document.createElement('th');
-    th.textContent = 'Location/Hours';
-    trElement.appendChild(th);
-
-    let tr3 = document.createElement('tr');
-        tableElement.appendChild(tr3);
-
-    let td = document.createElement('td');
-    td.textContent = this.name;
-    tr3.appendChild(td);
-
-    // let trElement2 = document.createElement('tr');
-    // tableElement.appendChild(trElement2);
-
-   
-
-    for (let i = 0; i < hours.length; i++) {
-
-
-        
-        
-        let thElement = document.createElement('th');
-        thElement.textContent = hours[i]
-        trElement.appendChild(thElement);
-
-        
-
-        let tdElement = document.createElement('td');
-        tdElement.textContent = this.cookiesSales[i]
-        tr3.appendChild(tdElement);
-    }
-
-
-}
-
-
-
-let seattle = new salesData('Seattle', 23, 65, 3.6);
-let tokyo = new salesData('Tokyo', 3, 24, 1.2);
-let dubai = new salesData('Dubai', 11, 38, 3.7);
-let paris = new salesData('Paris', 20, 38, 2.3);
-let lima = new salesData('Lima', 2, 16, 4.6);
-
-
-let array = [seattle, tokyo, dubai, paris, lima];
-
-for (let i = 0; i < array.length; i++) {
-    array[i].getCookies();
-    array[i].render();
-}
 
 
