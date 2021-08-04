@@ -2,6 +2,8 @@
 
 let sales = document.getElementById('sales');
 
+let storeForm = document.getElementById('storeForm');
+
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 function randomNumber(min, max) {
@@ -63,12 +65,7 @@ let lima = new salesData('Lima', 2, 16, 4.6);
 
 let array = [seattle, tokyo, dubai, paris, lima];
 
-tableHeader();
-for (let i = 0; i < array.length; i++) {
-    array[i].getCookies();
-    array[i].render();
-}
-tableFooter();
+
 
 
 function tableHeader() {
@@ -91,9 +88,9 @@ function tableFooter() {
     sales.appendChild(trElement);
 
     let thElement1 = document.createElement('th');
-        thElement1.textContent = '';
-        trElement.appendChild(thElement1);
-        
+    thElement1.textContent = '';
+    trElement.appendChild(thElement1);
+
     for (let i = 0; i < hours.length; i++) {
 
         let hourlyTotal = 0;
@@ -108,15 +105,47 @@ function tableFooter() {
     }
 
     let finalTotal = 0;
-    for (let j = 0; j < array.length; j++ ){
+    for (let j = 0; j < array.length; j++) {
         finalTotal += array[j].total
     }
 
     let thElement = document.createElement('th');
-        thElement.textContent = finalTotal;
-        trElement.appendChild(thElement);
+    thElement.textContent = finalTotal;
+    trElement.appendChild(thElement);
 }
 
+// ****************** new store form ***************
+
+storeForm.addEventListener('submit', submitHandle);
+
+function submitHandle(event) {
+
+    event.preventDefault();
+
+    let strName = event.target.name.value;
+    let minCustomer = event.target.minCustomres.value;
+    let maxCustomer = event.target.maxCustomers.value;
+    let avgCookie = event.target.avgCookies.value;
+
+    let newStore = new salesData(strName, minCustomer, maxCustomer, avgCookie);
+
+    newStore.getCookies();
+    newStore.render();
+    storeForm.reset();
+
+}
+
+// ****************** calling functions ******************
+
+tableHeader();
+
+for (let i = 0; i < array.length; i++) {
+    array[i].getCookies();
+    array[i].render();
+}
+
+
+tableFooter();
 
 
 

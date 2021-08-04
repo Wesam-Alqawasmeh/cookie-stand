@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,34 @@
     <title>Sales Data</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
     <header>
         <h1 id="salesPage">Sales data for pat's Salmon Cookies</h1>
         <a id="index" href="./index.html">Home page</a>
     </header>
     <main>
+
+        <fieldset>
+            <legend>Add a new cookie store</legend>
+           <form id="storeForm">
+               <label for="name">Store Name</label>
+               <input type="text" id="name">
+
+               <label for="minCustomres">Min Customres Num.</label>
+               <input type="number" id="minCustomres">
+
+               <label for="maxCustomers">Max Customers Num.</label>
+               <input type="number" id="maxCustomers">
+
+               <label for="avgCookies">Avg Cookies</label>
+               <input type="number" id="avgCookies" step="any">
+
+               <input type="submit" value="Save">
+           </form>
+        </fieldset>
+
+
         <article id="sales">
 
         </article>
@@ -21,7 +44,8 @@
 
     </footer>
     <script src="./js/app.js"></script>
-   
-    
+
+
 </body>
+
 </html>
