@@ -88,3 +88,11 @@ tr td {
 #index {
     text-align: right;
 }
+
+table {
+    font-style: Arial (sans-serif);
+}
+
+p {
+    font-style: Times New Roman (serif);
+}
