@@ -6,9 +6,17 @@
 body {
    width: 1000px;
    height: 1500px;
-    border: 10px solid blue;
-    margin:auto;
-    background-color: #f0700e;
+   margin:auto;
+   background-color: #181D27;
+    
+    
+}
+
+h1 {
+    color: #D0DB97;
+    font-size: 40px;
+    text-align: center;
+    align-items: center;
     
 }
 
@@ -16,53 +24,78 @@ main {
     padding: 30px;
 }
 
-footer {
-    padding: 30px;
-}
 
 a {
     text-decoration: none;
-    color:blue;
+    color: #69B578;
+    padding: 10px 10px;
+    display: inline-block;
+    transition: 300ms;
+   
 }
 
 header {
     display: grid;
-    grid-template-columns: 200px auto auto;
+    grid-template-columns: 500px 500px;
     align-items: center;
 }
 
+footer{
+    border-top: 1px solid #D0DB97;
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
+    padding-top: 30px;
+    color: #69B578;
+}
+
+
 header nav {
     text-align: center;
+    padding-top: 20px;
+    align-items: center;
 }
 
 header h1 {
     text-align: center;
+    background-color: #254D32;
+    
 }
 
 header nav p{
     padding: 0px 20px ;
-}
-header nav a {
-    padding: 10px 10px;
-    display: inline-block;
-    transition: 300ms;
+    color: #69B578;
 }
 
-header nav a:hover {
-    color: #f0700e;
-    background-color: blue;
+
+a:hover {
+    color: #69B578;
+    background-color: #D0DB97;
 
 }
 
 
 .location {
-    padding: 50px;
+    margin: auto;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    color: #69B578;
+    font-size: 28px;
+    font-style: Arial (sans-serif);
+
+
 }
 
 .img-section {
     display: grid;
     grid-template-columns: auto auto;
     gap: 30px;
+    padding: 20px;
+   
+}
+
+img {
+    border: 5px solid #D0DB97;
 }
 
 section img {
@@ -73,11 +106,21 @@ section img {
 
 
 tr th {
-    border: 1px solid black;
+    border: 3px solid #254D32;
+    color: #69B578;
+    height: 25px;
+    width: 50;
+    align-items: center;
+    text-align: center;
 }
 
 tr td {
-    border: 1px solid black;
+    border: 3px solid #254D32;
+    color: #69B578;
+    height: 30px;
+    width: 60px;
+    align-items: center;
+    text-align: center;
 }
 
 #salesPage {
@@ -85,14 +128,41 @@ tr td {
     grid-template-columns: 500px ;
 }
 
-#index {
-    text-align: right;
-}
+
+
 
 table {
     font-style: Arial (sans-serif);
+   
 }
 
 p {
     font-style: Times New Roman (serif);
+}
+
+legend {
+    color: #254D32;
+}
+
+form {
+    color: #69B578;
+}
+
+fieldset {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto;
+}
+
+form nav {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    align-items: center; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+article {
+    margin: auto;
+    padding-top: 30px;
 }

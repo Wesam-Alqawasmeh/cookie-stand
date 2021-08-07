@@ -128,7 +128,7 @@ function submitHandle(event) {
     let avgCookie = event.target.avgCookies.value;
 
     let newStore = new salesData(strName, minCustomer, maxCustomer, avgCookie);
-
+    
     newStore.getCookies();
     newStore.render();
     storeForm.reset();

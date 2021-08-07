@@ -11,27 +11,37 @@
 
 <body>
     <header>
-        <h1 id="salesPage">Sales data for pat's Salmon Cookies</h1>
+        <h1 id="salesPage"> Pat's Salmon Cookies</h1>
+      <nav>
         <a id="index" href="./index.html">Home page</a>
+      </nav>  
     </header>
     <main>
 
         <fieldset>
             <legend>Add a new cookie store</legend>
            <form id="storeForm">
-               <label for="name">Store Name</label>
-               <input type="text" id="name">
 
-               <label for="minCustomres">Min Customres Num.</label>
+            <nav>
+                <label for="name">Store Name</label>
+                <input type="text" id="name">
+            </nav>
+            <nav>
+                <label for="minCustomres">Min Customres Num.</label>
                <input type="number" id="minCustomres">
-
-               <label for="maxCustomers">Max Customers Num.</label>
+            </nav>
+            <nav>
+                <label for="maxCustomers">Max Customers Num.</label>
                <input type="number" id="maxCustomers">
-
-               <label for="avgCookies">Avg Cookies</label>
+            </nav>
+            <nav>
+                <label for="avgCookies">Avg Cookies</label>
                <input type="number" id="avgCookies" step="any">
-
-               <input type="submit" value="Save">
+            </nav>
+            
+                <input type="submit" value="Save">
+            
+               
            </form>
         </fieldset>
 
@@ -41,7 +51,7 @@
         </article>
     </main>
     <footer>
-
+        Pat's Cookies &copy;
     </footer>
     <script src="./js/app.js"></script>
 
