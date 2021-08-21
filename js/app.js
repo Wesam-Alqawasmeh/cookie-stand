@@ -128,11 +128,18 @@ function submitHandle(event) {
     let avgCookie = event.target.avgCookies.value;
 
     let newStore = new salesData(strName, minCustomer, maxCustomer, avgCookie);
+
     
+    sales.deleteRow(-1);
+    
+    array.push(newStore);
+
     newStore.getCookies();
     newStore.render();
-    storeForm.reset();
 
+
+    tableFooter();
+    storeForm.reset();
 }
 
 // ****************** calling functions ******************
